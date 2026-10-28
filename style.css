@@ -47,3 +47,45 @@ button:focus-visible { outline: 3px solid #71e3ff; outline-offset: 3px; }
   #reset { width: 100%; min-width: 0; min-height: 46px; }
   #reset + .muted { margin-top: 8px; }
 }
+
+
+/* AKKAWIT SpeedCheck 2.1 — Mobile Optimized Edition
+   Mobile-only refinements. Desktop layout is unchanged. */
+@media (max-width: 640px) {
+  body { padding: 12px; }
+  main { width: 100%; }
+  header { gap: 10px; margin-bottom: 14px; }
+  .logo { gap: 10px; }
+  .symbol { font-size: 21px; padding: 10px; border-radius: 13px; flex: 0 0 auto; }
+  h1 { font-size: clamp(20px, 5.6vw, 26px); line-height: 1.15; letter-spacing: -.025em; }
+  header small { font-size: 11px; line-height: 1.4; }
+  #connection { font-size: 12px; }
+  .panel { border-radius: 17px; margin-bottom: 12px; }
+  /* Main test panel: reduce whitespace while keeping a large, readable speed. */
+  .panel.center:not(:has(> #reset)) { padding: 19px 16px 17px; }
+  #stage { font-size: 13px; letter-spacing: .02em; }
+  .speed { font-size: clamp(52px, 14vw, 72px); line-height: 1.08; margin: 9px 0 2px; }
+  .unit { font-size: 14px; }
+  #message { font-size: 13px; line-height: 1.45; margin: 12px 0 14px; }
+  progress { display: block; height: 9px; }
+  .panel.center p:has(> button) { margin-top: 14px; gap: 9px; }
+  #start { min-height: 50px; padding: 11px 14px; font-size: 16px; }
+  #cancel { min-height: 48px; padding: 10px 14px; font-size: 15px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+  .metric { min-height: 103px; padding: 12px 13px; border-radius: 14px; }
+  .metric small { font-size: 12px; }
+  .metric b { font-size: clamp(23px, 6.5vw, 30px); margin: 6px 0 3px; }
+  .panel.center:has(> #reset) { padding: 12px; margin-bottom: 12px; }
+  #reset { min-height: 46px; padding: 10px 14px; font-size: 15px; }
+  #reset + .muted { font-size: 11px; line-height: 1.45; margin-top: 7px; }
+  .panel:not(.center) { padding: 17px 16px; }
+  .panel:not(.center) h2 { font-size: 19px; margin: 0 0 10px; }
+  .note { font-size: 12px; line-height: 1.6; }
+  footer { margin-top: 14px; font-size: 11px; }
+}
+@media (max-width: 360px) {
+  h1 { font-size: 19px; }
+  .metric { padding: 11px; }
+  .metric small { font-size: 11px; }
+  #start, #reset { font-size: 14px; }
+}
