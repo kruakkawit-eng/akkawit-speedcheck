@@ -26,6 +26,7 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {res.writeHead(200,{'Content-Type':'application/json'});res.end(JSON.stringify({received}));});
     return;
   }
+  if(req.method === 'GET' && url.pathname === '/style.css') {res.writeHead(200,{'Content-Type':'text/css; charset=utf-8'});return fs.createReadStream(path.join(root,'style.css')).pipe(res);}
   if(req.method === 'GET' && url.pathname === '/app.js') {res.writeHead(200,{'Content-Type':'text/javascript; charset=utf-8'});return fs.createReadStream(path.join(root,'app.js')).pipe(res);}
   if(req.method !== 'GET' || !['/','/index.html'].includes(url.pathname)) {res.writeHead(404);return res.end('Not found');}
   res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; base-uri 'none'; object-src 'none'"});
