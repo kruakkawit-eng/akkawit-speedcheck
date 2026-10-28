@@ -30,3 +30,20 @@ button:focus-visible { outline: 3px solid #71e3ff; outline-offset: 3px; }
   .panel.center p:has(> button) { margin-top: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { button { transition: none; } }
+
+
+/* Compact refinement — results and reset controls */
+.grid { margin-bottom: 12px; gap: 12px; }
+.metric { min-height: 130px; padding: 16px 18px; }
+.metric b { margin: 8px 0 4px; }
+/* Only the panel containing Reset is compacted; main test panel remains spacious. */
+.panel.center:has(> #reset) { padding: 16px 20px; margin-bottom: 16px; }
+#reset { min-height: 48px; min-width: 230px; padding: 11px 20px; font-size: 16px; }
+#reset + .muted { margin: 8px 0 0; line-height: 1.4; }
+@media (max-width: 640px) {
+  .grid { gap: 10px; margin-bottom: 10px; }
+  .metric { min-height: 112px; padding: 12px 14px; }
+  .panel.center:has(> #reset) { padding: 14px 12px; margin-bottom: 14px; }
+  #reset { width: 100%; min-width: 0; min-height: 46px; }
+  #reset + .muted { margin-top: 8px; }
+}
